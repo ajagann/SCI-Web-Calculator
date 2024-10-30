@@ -1,0 +1,101 @@
+.container {
+    padding: 20px;
+    margin-top: 50px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+        margin: 2px 0;
+    }
+
+    h6 {
+        margin: 5px 0;
+    }
+}
+
+.section {
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    color: #fff;
+    width: 80%;
+}
+
+.operational {
+    background-color: #436D74;
+    color: #fff;
+}
+
+.embodied {
+    background-color: #752D4D;
+    color: #fff;
+}
+
+.sci {
+    background-color: #5A7529;
+    color: #fff;
+    text-align: center;
+}
+
+.label {
+    display: inline-block;
+    width: 70%;
+}
+
+.units {
+    display: inline-block;
+    text-align: right;
+    font-weight: bold;
+}
+
+.result {
+    display: inline-block;
+    text-align: right;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.input-box {
+    width: 80%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    text-align: right;
+    color: black
+}
+
+.output-box {
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    width: 80%;
+}
+
+.emission-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.row-input {
+    text-align: end;
+}
+
+.math-symbol {
+    display: flex;
+    justify-content: end;
+}
+
+.multiplication-symbol {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    width: 80%;
+}
+
+.card-table {
+    margin: 5px 0;
+    width: 100%;
+}

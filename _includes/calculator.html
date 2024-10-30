@@ -1,0 +1,104 @@
+<div class="container">
+    <!-- Operational Emissions Section -->
+    <div class="section operational">
+        <h2>Operational Emissions</h2>
+        <table class="card-table">
+            <tr>
+                <td><label for="energy">Energy Consumed by Software (kWh):</label></td>
+                <td class="row-input"><input type="number" id="energy" class="input-box"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="math-symbol"><div class="multiplication-symbol">×</div></td>
+            </tr>
+            <tr>
+                <td><label for="intensity">Location-based Carbon Intensity (gCO2-eq/kWh):</label></td>
+                <td class="row-input"><input type="number" id="intensity" class="input-box"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><hr></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="math-symbol">
+                    <div class="output-box">
+                        <span id="operationalEmissions">0</span>
+                        <label class="units">gCO2-eq</label>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Embodied Emissions Section -->
+    <div class="section embodied">
+        <h2>Embodied Emissions</h2>
+        <table class="card-table">
+            <tr>
+                <td><label for="embodied-emissions">Total Embodied Emissions (kWh):</label></td>
+                <td class="row-input"><input type="number" id="totalEmbodied" class="input-box"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="math-symbol"><div class="multiplication-symbol">×</div></td>
+            </tr>
+            <tr></tr>
+                <td><label for="time-reserved">Time HW Reserved (yrs):</label></td>
+                <td class="row-input"><input type="number" id="timeReserved" class="input-box"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="math-symbol"><div class="multiplication-symbol">&#247</div></td>
+            </tr>
+            <tr>
+                <td><label for="expected-lifespan">Expected HW Lifespan (yrs):</label></td>
+                <td class="row-input"><input type="number" id="hwLifespan" class="input-box"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="math-symbol"><div class="multiplication-symbol">×</div></td>
+            </tr>
+            <tr>
+                <td><label for="reserved-resources">Resources Reserved (kWh):</label></td>
+                <td class="row-input">  <input type="number" id="resourcesReserved" class="input-box"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="math-symbol"><div class="multiplication-symbol">&#247</div></td>
+            </tr>
+            <tr>
+                <td><label for="total-resources">Total Resources Available:</label></td>
+                <td class="row-input"><input type="number" id="resourcesAvailable" class="input-box"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><hr></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="math-symbol">
+                    <div class="output-box">
+                        <span id="embodiedEmissions">0</span>
+                        <label class="units">gCO2-eq</label>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- SCI Section -->
+    <div class="section sci">
+        <h2>Software Carbon Intensity (SCI)</h2>
+        <h6>Operational Emissions + Embodied Emissions</h6>
+
+        <table class="card-table">
+            <tr>
+                <td><label for="unit-of-work">Unit of Work (e.g., reqs/sec):</label></td>
+                <td class="row-input"><input id="unitWork" class="input-box"></td>
+            </tr>
+        </table>
+
+        <span id="sciOutput" class="output-box">0</span>
+        <label class="units">gCO2-eq</label>
+        <label class="units" id="unitOfWork"></label>
+    </div>
+</div>
