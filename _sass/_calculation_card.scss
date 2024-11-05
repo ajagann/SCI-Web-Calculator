@@ -1,6 +1,18 @@
+#explanation {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+
+    p {
+        width: 80vw;
+        font-weight: 400;
+        font-size: large;
+        // text-align: center;
+    }
+}
+
 .container {
     padding: 20px;
-    margin-top: 50px;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -48,7 +60,7 @@
     margin: 10px 0;
     border-radius: 8px;
     color: #fff;
-    width: 80%;
+    width: 80vw;
     display: grid;
     justify-items: center;
     font-weight: bold;
