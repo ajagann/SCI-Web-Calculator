@@ -156,7 +156,7 @@
 .hover-modal {
     display: none; /* Hidden by default */
     position: absolute;
-    transform: translate3d(-65%, 10%, 0);
+    transform: translate3d(-65%, 5%, 0);
     width: 20vw;
     background-color: #fff;
     color: #333;
@@ -175,7 +175,7 @@
 .modal-button {
     display: block;
     width: 100%;
-    margin-top: 10px;
+    margin: 10px 0 15px 0;
     padding: 8px;
     background-color: #007bff;
     color: white;
@@ -189,6 +189,71 @@
 }
   
 /* Show modal on icon hover */
+// .info-icon:hover + .hover-modal {
+//     display: block;
+// }
+
 .info-icon:hover + .hover-modal {
     display: block;
+}
+
+// Overlay styling
+.overlay {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Black with opacity */
+    z-index: 11; /* Sit on top */
+}
+
+// Popup styling
+.popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    border-radius: 5px;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 12; /* Sit on top of the overlay */
+}
+
+.close-button {
+    cursor: pointer;
+    float: right;
+    font-size: 20px;
+    color: #aaa;
+}
+
+.close-button:hover {
+    color: black;
+}
+
+#teads {
+    width: 100%;
+    border-collapse: collapse; /* Remove space between borders */
+    text-align: center;
+    
+    th {
+        background-color: #752D4D; /* Solid background color for the header */
+        color: white; /* Text color for the header */
+        padding: 10px; /* Padding for header cells */
+    }
+    
+    td {
+        padding: 10px; /* Padding for data cells */
+        border: 1px solid lightgray; /* Light gray borders for cells */
+    }
+    
+    tr {
+        border-bottom: 1px solid lightgray; /* Light gray borders between rows */
+    }
 }

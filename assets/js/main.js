@@ -124,9 +124,37 @@ icons.forEach((icon, index) => {
             hideModalWithDelay(modal);
         }
     });
+});
 
-    // Close the modal when the close button is clicked
-    modal.querySelector('.modal-button').onclick = function() {
-        modal.style.display = "none";
+// Javascript for Popups
+const popupButtons = document.querySelectorAll('.modal-button');
+const popups = document.querySelectorAll('.popup');
+const closeButtons = document.querySelectorAll('.close-button');
+const overlay = document.getElementById('overlay');
+
+// Show the popup and overlay when the button is clicked
+popupButtons.forEach(button => {
+    button.onclick = function() {
+        const popupId = this.getAttribute('data-popup');
+        document.getElementById(popupId).style.display = 'block';
+        overlay.style.display = 'block';
     };
 });
+
+// Close the popup and overlay when the close button is clicked
+closeButtons.forEach(button => {
+    button.onclick = function() {
+        this.parentElement.style.display = 'none';
+        overlay.style.display = 'none';
+    };
+});
+
+// Close the popup and overlay when clicking outside of it
+window.onclick = function(event) {
+    popups.forEach(popup => {
+        if (event.target == popup) {
+            popup.style.display = 'none';
+            overlay.style.display = 'none';
+        }
+    });
+};

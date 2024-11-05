@@ -65,9 +65,9 @@
                     <i class="info-icon fa-regular fa-circle-question fa-xl"></i>
                     <div class="infoModal hover-modal">
                         <p>
-                            The cumulative carbon emissions resulting from the entire lifecycle of hardware associated with the software, including manufacturing, transport, maintenance, and disposal. Sum the embodied emissions for all components.
+                            The cumulative carbon emissions resulting from the entire lifecycle of hardware associated with the software—including manufacturing, transport, maintenance, and disposal—are referred to as Life Cycle Assessment (LCA) values.
                         </p>
-                        <!-- <button class="modal-button">Help!</button> -->
+                        <button class="modal-button" data-popup="embodiedPopup">Help!</button>
                     </div>
                 </td>
             </tr>
@@ -153,6 +153,44 @@
                 <td></td>
             </tr>
         </table>
+        
+        <div id="embodiedPopup" class="popup">
+            <span class="close-button">&times;</span>
+            <p>Although the LCA values typically come from manufacturer's, there are several resources available to enable us to approximate these numbers.</p>
+            <p><a href="https://medium.com/teads-engineering/building-an-aws-ec2-carbon-emissions-dataset-3f0fd76c98ac">Teads Engineering</a> uses these generally accepted arbitrary values for various components</p>
+            <table id="teads">
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Emissions (kgCO2-eq)</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>128 GB of DRAM</td>
+                    <td>150</td>
+                </tr>
+                <tr>
+                    <td>1 CPU</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>1 HDD</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>1 SSD</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>1 GPU</td>
+                    <td>150</td>
+                </tr>
+            </table>
+            <p>
+                Or, there are LCA databases supplied by private organizations or put together by government agencies.
+                In the US, one such <a href="https://www.lcacommons.gov/lca-collaboration/US_Environmental_Protection_Agency/USEEIO/dataset/PROCESS/bc6a467a-e428-31f8-b115-7ee487e6d0fa">database</a> for specific to computers has been put together by the Federal LCA Commons.
+            </p>
+        </div>
     </div>
 
     <!-- SCI Section -->
@@ -182,3 +220,6 @@
         </div>
     </div>
 </div>
+
+<!-- Overlay Element -->
+<div id="overlay" class="overlay"></div>
