@@ -1,3 +1,10 @@
+<div id="explanation">
+    <p>
+        The <a href="https://sci.greensoftware.foundation/">Software Carbon Intensity (SCI)</a> specification is a standard developed by the <a href="https://greensoftware.foundation/">Green Software Foundation</a> to measure the carbon emissions from software applications. 
+        It provides a metric for assessing the environmental impact of software based on both operational and embodied emissions, helping developers make more sustainable choices.
+    </p>
+</div>
+
 <div class="container">
     <!-- Operational Emissions Section -->
     <div class="section operational">
@@ -33,7 +40,7 @@
                         <p>
                             Emissions related to the geographical location of hardware. Some regions have cleaner energy grids, affecting the overall carbon footprint.
                         </p>
-                        <!-- <button class="modal-button">Find Local Power Grid!</button> -->
+                        <button class="modal-button" data-popup="carbonIntensityPopup">Carbon Intensity Map</button>
                     </div>
                 </td>
             </tr>
@@ -153,7 +160,22 @@
                 <td></td>
             </tr>
         </table>
-        
+
+        <div id="carbonIntensityPopup" class="popup">
+            <span class="close-button">&times;</span>
+            <p>
+                The map below is generated from 2022 data provided by the <a href="https://www.eia.gov/electricity/data/eia923/">US Energy Information Administration</a>. 
+            </p>
+            <div id="map"> 
+                {% include ba_map.html %}
+            </div>
+            <p>
+                For realtime power grid load tracking, you can checkout <a href="https://www.gridstatus.io/ba-map">GridStatus.io</a>.
+                For realtime/historical Average Operational Emissions Rate (AOER), <a href="https://app.electricitymaps.com/map">Electricity Maps</a> is a good resource.
+                For realtime/historical Marginal Operational Emissions Rate (MOER), checkout <a href="https://watttime.org/docs-dev/coverage-map/">WattTime</a>.
+            </p>
+        </div>
+                
         <div id="embodiedPopup" class="popup">
             <span class="close-button">&times;</span>
             <p>Although the LCA values typically come from manufacturer's, there are several resources available to enable us to approximate these numbers.</p>
@@ -188,7 +210,7 @@
             </table>
             <p>
                 Or, there are LCA databases supplied by private organizations or put together by government agencies.
-                In the US, one such <a href="https://www.lcacommons.gov/lca-collaboration/US_Environmental_Protection_Agency/USEEIO/dataset/PROCESS/bc6a467a-e428-31f8-b115-7ee487e6d0fa">database</a> for specific to computers has been put together by the Federal LCA Commons.
+                In the US, one such <a href="https://www.lcacommons.gov/lca-collaboration/US_Environmental_Protection_Agency/USEEIO/dataset/PROCESS/bc6a467a-e428-31f8-b115-7ee487e6d0fa">database</a> specific to computers has been put together by the Federal LCA Commons.
             </p>
         </div>
     </div>

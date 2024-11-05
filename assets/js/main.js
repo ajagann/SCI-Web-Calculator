@@ -1,3 +1,5 @@
+import { region_to_acronym, carbon_intensity } from './carbonIntensity.js';
+
 function calculateOperationalEmissions() {
     const energy = parseFloat(document.getElementById('energy').value) || 0;
     const carbonIntensity = parseFloat(document.getElementById('carbonIntensity').value) || 0;
@@ -43,47 +45,6 @@ document.getElementById('timeReserved').addEventListener('input', calculateEmbod
 document.getElementById('hwLifespan').addEventListener('input', calculateEmbodiedEmissions);
 document.getElementById('resourcesReserved').addEventListener('input', calculateEmbodiedEmissions);
 document.getElementById('unitWork').addEventListener('input', calculateSCI);
-
-
-// Get the modal and icon elements
-// const modal = document.getElementById("infoModal");
-// const icon = document.getElementById("infoIcon");
-// let hideTimeout; // Variable to store the timeout
-
-// // Show the modal when hovering over the icon
-// icon.addEventListener("mouseover", () => {
-//     clearTimeout(hideTimeout); // Clear any pending hide timeout
-//     modal.style.display = "block";
-// });
-
-// // Keep the modal open when hovering over it
-// modal.addEventListener("mouseover", () => {
-//     clearTimeout(hideTimeout); // Clear any pending hide timeout
-//     modal.style.display = "block";
-// });
-
-// // Set a timeout to hide the modal when leaving the icon
-// icon.addEventListener("mouseleave", (event) => {
-    // if (!modal.contains(event.relatedTarget)) {
-    //     hideTimeout = setTimeout(() => {
-    //         modal.style.display = "none";
-    //     }, 100); // Adjust the delay as needed
-    // }
-// });
-
-// // Set a timeout to hide the modal when leaving the modal itself
-// modal.addEventListener("mouseleave", (event) => {
-//     if (!icon.contains(event.relatedTarget)) {
-//         hideTimeout = setTimeout(() => {
-//             modal.style.display = "none";
-//         }, 200); // Adjust the delay as needed
-//     }
-// });
-
-// // Close the modal when the close button is clicked
-// document.querySelector('.modal-button').onclick = function() {
-//     modal.style.display = "none";
-// };
 
 // Get all icons and modals
 const icons = Array.from(document.getElementsByClassName("infoIcon")); // Convert HTMLCollection to array
@@ -158,3 +119,30 @@ window.onclick = function(event) {
         }
     });
 };
+
+// Javascript for US Map in Carbon Intensity Popup
+const map = document.getElementById('map');
+const regions = Array.from(map.getElementsByTagName('path'));
+const acronym_labels = Array.from(map.getElementsByClassName('acronym'))
+
+regions.forEach((region, index) => {
+    // Find corresponding names
+    const label = acronym_labels[index];
+
+    label.onclick = function() {
+        const label_acronym = this.textContent.trim();
+        const value = carbon_intensity[label_acronym];
+        const alertStr = label_acronym + ": " + value;
+        alert(alertStr);
+    }
+
+    region.onclick = function() {
+        const regClss = this.classList;
+        const thisRegion = regClss[regClss.length - 1];
+        const acronym = region_to_acronym[thisRegion]["acronym"];
+        const full_name = region_to_acronym[thisRegion]["full_name"];
+        const value = carbon_intensity[acronym];
+        const alertStr = acronym + " (" + full_name + ")" + ": " + value;
+        alert(alertStr);
+    }
+});
